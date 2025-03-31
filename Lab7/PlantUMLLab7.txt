@@ -1,0 +1,29 @@
+@startuml
+class Printer {
+    -PrintStrategy strategy
+    +Printer(PrintStrategy strategy)
+    +void setStrategy(PrintStrategy strategy)
+    +void print(String document)
+}
+
+interface PrintStrategy {
+    +void print(String document)
+}
+
+class BlackAndWhitePrintStrategy {
+    +void print(String document)
+}
+
+class ColorPrintStrategy {
+    +void print(String document)
+}
+
+class LaserPrintStrategy {
+    +void print(String document)
+}
+
+Printer o--> PrintStrategy : использует
+PrintStrategy <|-- BlackAndWhitePrintStrategy
+PrintStrategy <|-- ColorPrintStrategy
+PrintStrategy <|-- LaserPrintStrategy
+@enduml
